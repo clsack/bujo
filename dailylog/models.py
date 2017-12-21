@@ -1,6 +1,13 @@
 from django.db import models
-from time import date
+
 # Create your models here.
+
+
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Event(models.Model):
@@ -38,10 +45,10 @@ class Expense(models.Model):
     )
     date_scheduled = models.DateField()
     description = models.CharField(max_length=255)
-    amount = models.DecimalField(decimal_places=2)
-    currency = models.CharField(max_length=2, choices=CURRENCY_CHOICES, default=ARS)
+    amount = models.DecimalField(max_digits=7, decimal_places=2)
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default=ARS)
 
 
 class Note(models.Model):
-    date_scheduled = models.DateField(auto_now_add=True, default=date.today)
+    date_scheduled = models.DateField(auto_now_add=True)
     description = models.CharField(max_length=500)
