@@ -1,0 +1,21 @@
+{% extends "dailylog/base.html" %}
+{% block js %}
+
+{% endblock %}
+{% block content %}
+<div class="container" style="position: relative;">
+<form action="" method="post">{% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Save" />
+</form>
+<script>
+    $(function () {
+        $('#id_date_scheduled').datetimepicker({
+            format:'YYYY-MM-DD'
+        });
+    });
+</script>
+</div>
+{% endblock %}

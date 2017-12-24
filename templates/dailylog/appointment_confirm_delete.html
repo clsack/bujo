@@ -1,0 +1,7 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ appointment }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
+{% endblock %}

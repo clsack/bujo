@@ -1,0 +1,8 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+    {{ expense.expense_text }}
+    {{ expense.date_scheduled }}
+    {{ expense.amount }}
+    {{ expense.currency }}
+    {{ expense.paid }}
+{% endblock %}
