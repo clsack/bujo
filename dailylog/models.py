@@ -17,7 +17,7 @@ class Event(models.Model):
 
 
 class Appointment(models.Model):
-    appointment_text = models.CharField(max_length=100)
+    appointment_text = models.CharField(max_length=100, verbose_name='Description')
     date_from = models.DateTimeField()
     date_to = models.DateTimeField()
     location = models.CharField(max_length=255)
@@ -31,7 +31,7 @@ class Appointment(models.Model):
 
 
 class Task(models.Model):
-    task_text = models.CharField(max_length=100)
+    task_text = models.CharField(max_length=100, verbose_name='Description')
     date_scheduled = models.DateField()
     date_completed = models.DateField()
     completed = models.BooleanField()
@@ -45,7 +45,7 @@ class Task(models.Model):
 
 
 class Deadline(models.Model):
-    deadline_text = models.CharField(max_length=100)
+    deadline_text = models.CharField(max_length=100, verbose_name='Description')
     date_scheduled = models.DateTimeField()
 
     def __str__(self):
@@ -67,7 +67,7 @@ class Expense(models.Model):
         (USD, 'United States Dollar'),
         (UYU, 'Uruguay Peso')
     )
-    expense_text = models.CharField(max_length=255)
+    expense_text = models.CharField(max_length=255, verbose_name='Description')
     date_scheduled = models.DateField()
     amount = models.DecimalField(max_digits=7, decimal_places=2)
     currency = models.CharField(max_length=3, choices=CURRENCY, default=ARS)
@@ -82,7 +82,7 @@ class Expense(models.Model):
 
 
 class Note(models.Model):
-    note_text = models.CharField(max_length=500)
+    note_text = models.CharField(max_length=500, verbose_name='Description')
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 

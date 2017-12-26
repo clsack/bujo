@@ -1,0 +1,13 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+
+<h1>tasks</h1>
+<ul>
+{% for task in object_list %}
+    <li>{{ task.task_text }} : {{ task.date_scheduled }} - {{ task.date_completed }} - {{ task.completed }} || <a href='{% url "task-delete" task.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No tasks yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

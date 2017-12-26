@@ -1,0 +1,13 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+
+<h1>appointments</h1>
+<ul>
+{% for appointment in object_list %}
+    <li>{{ appointment.appointment_text }} : {{ appointment.date_from }} - {{ appointment.date_to }} - {{ appointment.location }} || <a href='{% url "appointment-delete" appointment.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No appointments yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import Event, Appointment, Task, Deadline, Expense, Note
@@ -8,7 +8,7 @@ from .models import Event, Appointment, Task, Deadline, Expense, Note
 
 
 def index(request):
-    return HttpResponse("Daily log")
+    return render(request, 'dailylog/base.html')
 
 
 class EventCreate(CreateView):
@@ -27,6 +27,10 @@ class EventDelete(DeleteView):
 
 
 class EventDetail(generic.DetailView):
+    model = Event
+
+
+class EventListView(ListView):
     model = Event
 
 
@@ -49,6 +53,10 @@ class AppointmentDetail(generic.DetailView):
     model = Appointment
 
 
+class AppointmentListView(ListView):
+    model = Appointment
+
+
 class TaskCreate(CreateView):
     model = Task
     fields = ['task_text', 'date_scheduled', 'date_completed', 'completed']
@@ -65,6 +73,10 @@ class TaskDelete(DeleteView):
 
 
 class TaskDetail(generic.DetailView):
+    model = Task
+
+
+class TaskListView(ListView):
     model = Task
 
 
@@ -87,6 +99,10 @@ class DeadlineDetail(generic.DetailView):
     model = Deadline
 
 
+class DeadlineListView(ListView):
+    model = Deadline
+
+
 class ExpenseCreate(CreateView):
     model = Expense
     fields = ['expense_text', 'date_scheduled', 'amount', 'currency', 'paid']
@@ -106,6 +122,10 @@ class ExpenseDetail(generic.DetailView):
     model = Expense
 
 
+class ExpenseListView(ListView):
+    model = Expense
+
+
 class NoteCreate(CreateView):
     model = Note
     fields = ['note_text']
@@ -122,4 +142,8 @@ class NoteDelete(DeleteView):
 
 
 class NoteDetail(generic.DetailView):
+    model = Note
+
+
+class NoteListView(ListView):
     model = Note

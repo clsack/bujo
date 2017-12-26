@@ -1,0 +1,13 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+
+<h1>events</h1>
+<ul>
+{% for event in object_list %}
+    <li>{{ event.event_text }} : {{ event.date_from }} - {{ event.date_to }} || <a href='{% url "event-delete" event.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No events yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

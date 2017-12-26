@@ -1,0 +1,13 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+
+<h1>expenses</h1>
+<ul>
+{% for expense in object_list %}
+    <li>{{ expense.expense_text }} : {{ expense.date_scheduled }} - {{ expense.amount }} {{ expense.currency }} : {{ expense.paid }} || <a href='{% url "expense-delete" expense.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No expenses yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

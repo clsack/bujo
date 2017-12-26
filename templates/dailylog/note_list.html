@@ -1,0 +1,13 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+
+<h1>notes</h1>
+<ul>
+{% for note in object_list %}
+    <li>{{ note.note_text }} : {{ note.date_created }} - {{ note.date_modified }} || <a href='{% url "note-delete" note.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No notes yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

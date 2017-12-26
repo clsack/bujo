@@ -1,0 +1,13 @@
+{% extends "dailylog/base.html" %}
+{% block content %}
+
+<h1>deadlines</h1>
+<ul>
+{% for deadline in object_list %}
+    <li>{{ deadline.deadline_text }} : {{ deadline.date_scheduled }} || <a href='{% url "deadline-delete" deadline.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No deadlines yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
