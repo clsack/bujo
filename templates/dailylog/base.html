@@ -36,12 +36,12 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                    <a href='{% url "index" %}'>
+                        Daily log
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href='{% url "index" %}'>Dashboard</a>
                 </li>
                 <li>
                     <a href='{% url "event-list" %}'>Events</a>
