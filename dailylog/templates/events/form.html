@@ -1,4 +1,4 @@
-{% extends "dailylog/base.html" %}
+{% extends "base.html" %}
 {% block js %}
 
 {% endblock %}
@@ -12,8 +12,13 @@
 </form>
 <script>
     $(function () {
-        $('#id_date_scheduled').datetimepicker({
-            format:'YYYY-MM-DD'
+        $('#id_date_from').datetimepicker({
+            format:'YYYY-MM-DD HH:mm:ss'
+        });
+    });
+    $(function () {
+        $('#id_date_to').datetimepicker({
+            format:'YYYY-MM-DD HH:mm:ss'
         });
     });
 </script>

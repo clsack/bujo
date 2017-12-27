@@ -1,4 +1,4 @@
-{% extends "dailylog/base.html" %}
+{% extends "base.html" %}
 {% block js %}
 
 {% endblock %}
@@ -10,12 +10,5 @@
     </table>
     <input type="submit" value="Save" />
 </form>
-<script>
-    $(function () {
-        $('#id_date_scheduled').datetimepicker({
-            format:'YYYY-MM-DD HH:mm:ss'
-        });
-    });
-</script>
 </div>
 {% endblock %}

@@ -1,7 +1,7 @@
-{% extends "dailylog/base.html" %}
+{% extends "base.html" %}
 {% block content %}
 <form action="" method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ expense }}"?</p>
+    <p>Are you sure you want to delete "{{ deadline }}"?</p>
     <input type="submit" value="Confirm" />
 </form>
 {% endblock %}
