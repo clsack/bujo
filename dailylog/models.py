@@ -40,7 +40,7 @@ class Appointment(models.Model):
 class Task(models.Model):
     task_text = models.CharField(max_length=100, verbose_name='Description')
     date_scheduled = models.DateField()
-    date_completed = models.DateField()
+    date_completed = models.DateField(null=True, blank=True)
     completed = models.BooleanField()
 
     class Meta:
