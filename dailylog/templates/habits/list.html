@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>habits</h1>
+<ul>
+{% for habit in object_list %}
+    <li>{{ habit.habit_text }} : {{ habit.date_scheduled }} - {{ habit.date_completed }} - {{ habit.completed }} || <a href='{% url "habit-delete" habit.pk %}'>Delete</a></li>
+{% empty %}
+    <li>No habits yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
